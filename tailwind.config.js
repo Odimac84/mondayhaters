@@ -4,7 +4,17 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        heading: 'Folktard'
+      }
+    },
+    colors: {
+      'primary-bg': '#7D7E75',
+      'active': '#A8A8DA',
+      'white': '#EDEDF4',
+      'gold': 'DCAC01'
+    }
   },
   plugins: [],
 }
