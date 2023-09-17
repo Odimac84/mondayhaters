@@ -26,13 +26,7 @@ const router = createBrowserRouter([
 
 
 function App() {
-
-  useEffect(() => {
-    // This code is needed to ensure the links are updated after wowhead tooltip has been activated.
-    window.$WowheadPower.refreshLinks()
-  })
-
-
+  
   return (
     <>
       <RouterProvider router={router} />
