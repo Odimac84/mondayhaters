@@ -13,7 +13,8 @@ module.exports = {
       'primary-bg': '#7D7E75',
       'active': '#A8A8DA',
       'white': '#EDEDF4',
-      'gold': 'DCAC01'
+      'gold': '#DCAC01',
+      'primary-dark': '#0F110C',
     }
   },
   plugins: [],
