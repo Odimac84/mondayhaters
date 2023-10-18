@@ -5,3 +5,20 @@
 *, :root, body {
   margin: 0;
 }
+
+@font-face {
+  font-family: Folktard;
+  src: url('../public/fonts/folkard_.ttf') format('truetype');
+}
+
+
+#search-bar {
+  background-image: url('../public/svg/search.svg');
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: 98%;
+  background-size: contain;
+  margin-bottom: 5%;
+  border: 1px black solid;
+  box-shadow: 10px 5px 5px black;
+}
