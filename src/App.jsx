@@ -1,15 +1,20 @@
-import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
+// Actions
+import { setItems } from './redux/item/itemSlice';
+
+// Styling
+import './App.css';
+
+// Page Imports
 import LayoutPage from './Pages/LayoutPage';
 import HomePage from './Pages/HomePage';
 import ReservationPage from './Pages/ReservationPage';
 import ProfilePage from './Pages/ProfilePage';
 import AboutPage from './Pages/AboutPage';
 import ErrorPage from './Pages/ErrorPage';
-import { useEffect } from 'react';
-import { fetchData } from './data';
-
 
 
 const router = createBrowserRouter([
@@ -28,10 +33,16 @@ const router = createBrowserRouter([
 
 
 function App() {
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    const items = fetchData();
-  })
+    const fetchData = async () => {
+      const data = await fetch('http://localhost:9000/items');
+      const itemsData = (await data.json()).message
+      dispatch(setItems(itemsData))
+    }
+    fetchData()
+  }, [dispatch])
 
   return (
     <>
