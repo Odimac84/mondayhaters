@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 // Actions
 import { setItems } from './redux/item/itemSlice';
@@ -34,10 +34,11 @@ const router = createBrowserRouter([
 
 function App() {
   const dispatch = useDispatch()
+  const bosses = useSelector(state => state.items.currentBosses)
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetch('http://localhost:9000/items');
+      const data = await fetch('http://192.168.50.171:9000/items');
       const itemsData = (await data.json()).message
       dispatch(setItems(itemsData))
     }

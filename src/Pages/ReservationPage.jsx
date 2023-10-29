@@ -8,18 +8,32 @@ import ResultTable from "../Components/ResultTable";
 
 
 // Actions
-import { setSelectedRaid } from "../redux/item/itemSlice";
+import { setSelectedRaid, setCurrentBosses } from "../redux/item/itemSlice";
 
 // CONSTANTS
 import RAIDS from "../redux/item/Constants";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 const ReservationPage = () => {
-  const selectedRaid = useSelector(state => state.items.selectedRaid)
+  const {selectedRaid, data, currentBosses, re} = useSelector(state => state.items);
   const [dropdownEnabled, setDropdownEnabled] = useState(false);
+  
 
   const dispatch = useDispatch()
+  
+
+  useEffect(() => {
+    const bosses = Array.from(new Set(data.map(item => {
+      if(item.raid === selectedRaid){
+        return item.droppedBy;
+      }
+        return "Random Mobs"
+    })))
+  
+    dispatch(setCurrentBosses(bosses))
+  }, [selectedRaid, data])
+
 
   // HANDLERS
 

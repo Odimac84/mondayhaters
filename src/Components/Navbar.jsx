@@ -13,7 +13,7 @@ const Navbar = () => {
             <Link className="flex gap-2" to="profile"><img src="./svg/profile.svg" alt="profile icon"/>Profile</Link>
           </li>
           <li>
-          <Link className="flex gap-2" to="http://localhost:9000/auth">Login</Link> {/* Should it be link even if it is an external source? */}
+          <Link className="flex gap-2" to="http://192.168.50.171:9000/auth">Login</Link> {/* Should it be link even if it is an external source? */}
           </li>
           <li>
             <Link className="flex gap-2" to="reservation"><img src="./svg/reservation.svg" alt="reservation icon"/>Reservation</Link>
